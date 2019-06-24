@@ -1,13 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainForm from './components/MainForm';
+import TodoList from './components/TodoList';
+import {connect} from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-    
-    </div>
-  );
+
+class App extends React.Component {
+
+  render(){
+        return (
+              <div className="App">
+                  <h1>Todo App</h1>
+                  <h3>With Redux</h3>
+                  <MainForm />
+                  <TodoList todoList={this.props.todos} />
+              </div>
+        );
+     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  
+      return {todos: state.todos}
+        
+};
+
+export default connect(mapStateToProps,{})(App);
