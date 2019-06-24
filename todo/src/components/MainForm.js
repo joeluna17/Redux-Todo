@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addTodo} from '../actions';
-import { tsIndexSignature } from '@babel/types';
+
 
 
 
@@ -11,7 +11,7 @@ class MainForm extends React.Component {
         super()
       
         this.state = {
-            id: 4,
+            id: 3,
             value: "",
             completed: false
         }
@@ -33,7 +33,7 @@ class MainForm extends React.Component {
          this.props.addTodo(newTodo)
 
          this.setState({
-            id: 4,
+            id: this.state.id += 1,
             value: "",
             completed: false
          })

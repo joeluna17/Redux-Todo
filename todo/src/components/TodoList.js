@@ -9,7 +9,7 @@ const TodoList = props =>{
             <ul>
                 {
                     props.todoList.map(todo => {
-                      return  <li key = {todo.id}>
+                      return  <li className={`${todo.completed?"completed" : ""}`} key={todo.id} onClick= {(e)=>props.toggleCompleted(e, todo.id)}>
                             {todo.value}
                         </li>
                     })
